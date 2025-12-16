@@ -4,5 +4,5 @@ todos = []
 
 while True:
     todo = input(user_prompt)
-    todo.title()
     todos.append(todo)
+    print(todos)
