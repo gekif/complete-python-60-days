@@ -7,8 +7,6 @@ In other words, here is what your program should print out:
 John
 Sarah
 Dora
-
-
 '''
 
 members = ['john', 'sarah', 'dora']
