@@ -1,5 +1,3 @@
-from hmac import new
-
 todos = []
 
 while True:
@@ -11,9 +9,10 @@ while True:
             todo = input("Enter a todo: ")
             todos.append(todo)
         case "show" | "display":
-            for item in todos:
+            for index, item in enumerate(todos):
+                index += 1
                 item = item.title()
-                print(item)
+                print(index,'-',item)
         case "edit":
             number = int(input("Number of the todo to edit: "))
             number -= 1
