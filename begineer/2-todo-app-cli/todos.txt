@@ -1,0 +1,6 @@
+clean
+throw
+away
+breakfast
+lunch
+dinner
