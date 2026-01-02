@@ -38,6 +38,10 @@ while True:
             todos[number] = new_todo
 
         case 'complete':
+            file = open("todos.txt", "r")
+            todos = file.readlines()
+            file.close()
+
             number = int(input("Number of the todo to complete: "))
             number -= 1
             todos.pop(number)
