@@ -9,21 +9,18 @@ while True:
         case "add":
             todo = input("Enter a todo: ") + "\n"
 
-            file = open("todos.txt", "r")
-            todos = file.readlines()
-            file.close()
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
 
             todos.append(todo)
 
-            file = open('todos.txt', 'w')
-            file.writelines(todos)
-            file.close()
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
 
         # Check if user action is "show"
         case "show":
-            file = open("todos.txt", "r")
-            todos = file.readlines()
-            file.close()
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
 
             for index, item in enumerate(todos):
                 item = item.strip().title()
@@ -32,36 +29,31 @@ while True:
 
         # Check if user action is "edit"
         case "edit":
-            file = open("todos.txt", "r")
-            todos = file.readlines()
-            file.close()
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
 
             number = int(input("Number of the todo to edit: "))
             number -= 1
             new_todo = input("Enter new todo: ")
             todos[number] = new_todo
 
-            file = open('todos.txt', 'w')
-            file.writelines(todos)
-            file.close()
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
 
         # Check if user action is "complete"
         case 'complete':
-            file = open("todos.txt", "r")
-            todos = file.readlines()
-            file.close()
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
 
             number = int(input("Number of the todo to complete: "))
             number -= 1
             completed_todo = todos.pop(number)
 
-            file = open('todos.txt', 'w')
-            file.writelines(todos)
-            file.close()
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
 
-            file = open('complete.txt', 'w')
-            file.writelines(completed_todo)
-            file.close()
+            with open('complete.txt', 'w') as file:
+                file.writelines(completed_todo)
 
         # Check if user action is "exit"
         case "exit":
