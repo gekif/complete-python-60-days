@@ -49,6 +49,8 @@ while True:
             number -= 1
             completed_todo = todos.pop(number)
 
+            print(f'Todo "{completed_todo.strip().title()}" was removed from the list!')
+
             with open('todos.txt', 'w') as file:
                 file.writelines(todos)
 
