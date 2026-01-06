@@ -5,7 +5,7 @@ while True:
 
 
     # Check if user action is "add"
-    if "add" in user_action:
+    if "add" in user_action or "new" in user_action:
         todo = user_action[4:] + "\n"
 
         with open("todos.txt", "r") as file:
@@ -18,16 +18,20 @@ while True:
 
     # Check if user action is "show"
     elif "show" in user_action:
-        with open("todos.txt", "r") as file:
-            if "todos.txt" not in file:
-                print("No todos found.")
-                continue
-            todos = file.readlines()
+        try:
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
 
-        for index, item in enumerate(todos):
-            item = item.strip().title()
-            row = f"{index + 1} - {item}"
-            print(row)
+            if not todos:
+                print("No todos")
+            else:
+                for index, item in enumerate(todos):
+                    item = item.strip().title()
+                    row = f"{index + 1} - {item}"
+                    print(row)
+
+        except FileNotFoundError:
+            print("No todos")
 
     # Check if user action is "edit"
     elif "edit" in user_action:
