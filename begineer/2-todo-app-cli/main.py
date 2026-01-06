@@ -17,8 +17,11 @@ while True:
             file.writelines(todos)
 
     # Check if user action is "show"
-    if "show" in user_action:
+    elif "show" in user_action:
         with open("todos.txt", "r") as file:
+            if "todos.txt" not in file:
+                print("No todos found.")
+                continue
             todos = file.readlines()
 
         for index, item in enumerate(todos):
@@ -27,24 +30,24 @@ while True:
             print(row)
 
     # Check if user action is "edit"
-    if "edit" in user_action:
+    elif "edit" in user_action:
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
-        number = int(input("Number of the todo to edit: "))
+        number = int(user_action[5:])
         number -= 1
         new_todo = input("Enter new todo: ")
-        todos[number] = new_todo
+        todos[number] = new_todo + "\n"
 
         with open('todos.txt', 'w') as file:
             file.writelines(todos)
 
     # Check if user action is "complete"
-    if 'complete' in user_action:
+    elif 'complete' in user_action:
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
-        number = int(input("Number of the todo to complete: "))
+        number = int(user_action[9:])
         number -= 1
         completed_todo = todos.pop(number)
 
@@ -57,10 +60,10 @@ while True:
             file.writelines(completed_todo)
 
     # Check if user action is "exit"
-    if "exit" in user_action:
+    elif "exit" in user_action:
         print("Goodbye!")
         break
 
     # # Check if user action is "unknown"
-    # if "_" not in user_action:
-    #     print("Unknown command, please try again.")
+    else:
+        print("Unknown command, please try again.")
