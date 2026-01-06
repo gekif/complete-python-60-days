@@ -1,4 +1,2 @@
-clean
-throw
-away
-breakfast
+makan
+minum
