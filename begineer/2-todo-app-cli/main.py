@@ -6,7 +6,7 @@ while True:
 
     # Check if user action is "add"
     if user_action.startswith("add"):
-        todo = user_action[4:]
+        todo = user_action[4:].strip()
 
         with open("todos.txt", "r") as file:
             todos = file.readlines()
@@ -35,34 +35,60 @@ while True:
 
     # Check if user action is "edit"
     elif user_action.startswith("edit"):
-        with open("todos.txt", "r") as file:
-            todos = file.readlines()
+        try:
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
 
-        number = int(user_action[5:])
+            number = int(user_action[5:].strip())
+            index = number - 1
 
-        number -= 1
-        new_todo = input("Enter new todo: ")
-        todos[number] = new_todo + "\n"
+            # 🔴 VALIDASI INDEX DI SINI
+            if index < 0 or index >= len(todos):
+                raise IndexError
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+            # ✅ BARU MINTA INPUT JIKA INDEX VALID
+            new_todo = input("Enter new todo: ")
+            todos[index] = new_todo + "\n"
+
+            with open("todos.txt", "w") as file:
+                file.writelines(todos)
+
+        except ValueError:
+            print("Your command is not valid. Use: edit <number>")
+
+        except IndexError:
+            print("There is no todo with that number.")
+
 
     # Check if user action is "complete"
     elif user_action.startswith("complete"):
-        with open("todos.txt", "r") as file:
-            todos = file.readlines()
+        try:
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
 
-        number = int(user_action[9:])
-        number -= 1
-        completed_todo = todos.pop(number)
+            number = int(user_action[9:].strip())
+            index = number - 1
 
-        print(f'Todo "{completed_todo.strip().title()}" was removed from the list!')
+            # 🔴 VALIDASI INDEX
+            if index < 0 or index >= len(todos):
+                raise IndexError
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+            completed_todo = todos.pop(index)
 
-        with open('complete.txt', 'w') as file:
-            file.writelines(completed_todo)
+            print(f'Todo "{completed_todo.strip().title()}" was removed from the list!')
+
+            with open("todos.txt", "w") as file:
+                file.writelines(todos)
+
+            with open("complete.txt", "a") as file:
+                file.write(completed_todo)
+
+        except ValueError:
+            print("Your command is not valid. Use: complete <number>")
+
+        except IndexError:
+            print("There is no todo with that number.")
+
 
     # Check if user action is "exit"
     elif user_action.startswith("exit"):
