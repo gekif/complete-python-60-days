@@ -5,19 +5,19 @@ while True:
 
 
     # Check if user action is "add"
-    if "add" in user_action or "new" in user_action:
-        todo = user_action[4:] + "\n"
+    if user_action.startswith("add"):
+        todo = user_action[4:]
 
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
-        todos.append(todo)
+        todos.append(todo + "\n")
 
         with open('todos.txt', 'w') as file:
             file.writelines(todos)
 
     # Check if user action is "show"
-    elif "show" in user_action:
+    elif user_action.startswith("show"):
         try:
             with open("todos.txt", "r") as file:
                 todos = file.readlines()
@@ -34,11 +34,12 @@ while True:
             print("No todos")
 
     # Check if user action is "edit"
-    elif "edit" in user_action:
+    elif user_action.startswith("edit"):
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
         number = int(user_action[5:])
+
         number -= 1
         new_todo = input("Enter new todo: ")
         todos[number] = new_todo + "\n"
@@ -47,7 +48,7 @@ while True:
             file.writelines(todos)
 
     # Check if user action is "complete"
-    elif 'complete' in user_action:
+    elif user_action.startswith("complete"):
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
@@ -64,7 +65,7 @@ while True:
             file.writelines(completed_todo)
 
     # Check if user action is "exit"
-    elif "exit" in user_action:
+    elif user_action.startswith("exit"):
         print("Goodbye!")
         break
 
