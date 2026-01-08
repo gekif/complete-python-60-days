@@ -1,3 +1,17 @@
+def get_todos():
+    with open("todos.txt", "r") as file_local:
+        todos_local = file_local.readlines()
+    return todos_local
+
+def write_todos(todos_local):
+    with open("todos.txt", "w") as file_local:
+        file_local.writelines(todos_local)
+
+def complete_todo(completed_todo_local):
+    with open("complete.txt", "a") as file_local:
+        file_local.writelines(completed_todo_local)
+
+
 while True:
     # Get use input and strip space chars from it
     user_action = input("Type add, show, edit, complete or exit: ")
@@ -8,19 +22,16 @@ while True:
     if user_action.startswith("add"):
         todo = user_action[4:].strip()
 
-        with open("todos.txt", "r") as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         todos.append(todo + "\n")
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+        write_todos(todos)
 
     # Check if user action is "show"
     elif user_action.startswith("show"):
         try:
-            with open("todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             if not todos:
                 print("No todos")
@@ -36,8 +47,7 @@ while True:
     # Check if user action is "edit"
     elif user_action.startswith("edit"):
         try:
-            with open("todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             number = int(user_action[5:].strip())
             index = number - 1
@@ -50,8 +60,7 @@ while True:
             new_todo = input("Enter new todo: ")
             todos[index] = new_todo + "\n"
 
-            with open("todos.txt", "w") as file:
-                file.writelines(todos)
+            write_todos(todos)
 
         except ValueError:
             print("Your command is not valid. Use: edit <number>")
@@ -63,8 +72,7 @@ while True:
     # Check if user action is "complete"
     elif user_action.startswith("complete"):
         try:
-            with open("todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             number = int(user_action[9:].strip())
             index = number - 1
@@ -77,11 +85,8 @@ while True:
 
             print(f'Todo "{completed_todo.strip().title()}" was removed from the list!')
 
-            with open("todos.txt", "w") as file:
-                file.writelines(todos)
-
-            with open("complete.txt", "a") as file:
-                file.write(completed_todo)
+            write_todos(todos)
+            complete_todo(completed_todo)
 
         except ValueError:
             print("Your command is not valid. Use: complete <number>")
