@@ -10,3 +10,5 @@ sapu
 coro
 makan
 minum
+minum
+makan
