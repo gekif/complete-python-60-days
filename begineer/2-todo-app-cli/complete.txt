@@ -8,3 +8,5 @@ minum
 makan
 sapu
 coro
+makan
+minum
