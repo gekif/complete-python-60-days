@@ -5,3 +5,6 @@ makan
 minum
 minum
 minum
+makan
+sapu
+coro
