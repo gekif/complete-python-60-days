@@ -1,105 +1,111 @@
 import todo_functions
 
+def main():
+    while True:
+        user_action = input("Type add, show, edit, complete, delete or exit: ").strip()
 
-while True:
-    user_action = input("Type add, show, edit, complete, delete or exit: ").strip()
+        # ================= ADD =================
+        if user_action.startswith("add"):
+            todo = user_action[4:].strip()
 
-    # ================= ADD =================
-    if user_action.startswith("add"):
-        todo = user_action[4:].strip()
-
-        if not todo:
-            print("Todo cannot be empty.")
-            continue
-
-        todos = todo_functions.get_todos()
-        todos.append(todo)
-        todo_functions.write_todos(todos)
-        print("Todo added.")
-
-
-    # ================= SHOW =================
-    elif user_action == "show":
-        todos = todo_functions.get_todos()
-
-        if not todos:
-            print("No todos.")
-        else:
-            for i, todo in enumerate(todos, start=1):
-                print(f"{i} - {todo.title()}")
-
-
-    # ================= EDIT =================
-    elif user_action.startswith("edit"):
-        try:
-            number = int(user_action[5:].strip())
-            todos = todo_functions.get_todos()
-            index = number - 1
-
-            if index < 0 or index >= len(todos):
-                raise IndexError
-
-            new_todo = input("Enter new todo: ").strip()
-            if not new_todo:
+            if not todo:
                 print("Todo cannot be empty.")
                 continue
 
-            todos[index] = new_todo
-            todo_functions.write_todos(todos)
-            print("Todo updated.")
-
-        except ValueError:
-            print("Use: edit <number>")
-        except IndexError:
-            print("There is no todo with that number.")
-
-
-    # ================= COMPLETE =================
-    elif user_action.startswith("complete"):
-        try:
-            number = int(user_action[9:].strip())
             todos = todo_functions.get_todos()
-            index = number - 1
-
-            if index < 0 or index >= len(todos):
-                raise IndexError
-
-            completed = todos.pop(index)
+            todos.append(todo)
             todo_functions.write_todos(todos)
-            todo_functions.append_completed(completed)
+            print("Todo added.")
 
-            print(f'Todo "{completed.title()}" completed!')
 
-        except ValueError:
-            print("Use: complete <number>")
-        except IndexError:
-            print("There is no todo with that number.")
-
-    # ================= DELETE =================
-    elif user_action.startswith("delete"):
-        try:
-            number = int(user_action[7:].strip())
+        # ================= SHOW =================
+        elif user_action == "show":
             todos = todo_functions.get_todos()
-            index = number - 1
 
-            if index < 0 or index >= len(todos):
-                raise IndexError
-
-            delete = todos.pop(index)
-            todo_functions.write_todos(todos)
-
-            print(f'Todo "{delete.title()}" deleted!')
-
-        except ValueError:
-            print("Use: delete <number>")
-        except IndexError:
-            print("There is no todo with that number.")
+            if not todos:
+                print("No todos.")
+            else:
+                for i, todo in enumerate(todos, start=1):
+                    print(f"{i} - {todo.title()}")
 
 
-    # ================= EXIT =================
-    elif user_action == "exit":
-        print("Goodbye!")
-        break
+        # ================= EDIT =================
+        elif user_action.startswith("edit"):
+            try:
+                number = int(user_action[5:].strip())
+                todos = todo_functions.get_todos()
+                index = number - 1
 
-    else:
-        print("Unknown command.")
+                if index < 0 or index >= len(todos):
+                    raise IndexError
+
+                new_todo = input("Enter new todo: ").strip()
+                if not new_todo:
+                    print("Todo cannot be empty.")
+                    continue
+
+                todos[index] = new_todo
+                todo_functions.write_todos(todos)
+                print("Todo updated.")
+
+            except ValueError:
+                print("Use: edit <number>")
+            except IndexError:
+                print("There is no todo with that number.")
+
+
+        # ================= COMPLETE =================
+        elif user_action.startswith("complete"):
+            try:
+                number = int(user_action[9:].strip())
+                todos = todo_functions.get_todos()
+                index = number - 1
+
+                if index < 0 or index >= len(todos):
+                    raise IndexError
+
+                completed = todos.pop(index)
+                todo_functions.write_todos(todos)
+                todo_functions.append_completed(completed)
+
+                print(f'Todo "{completed.title()}" completed!')
+
+            except ValueError:
+                print("Use: complete <number>")
+            except IndexError:
+                print("There is no todo with that number.")
+
+        # ================= DELETE =================
+        elif user_action.startswith("delete"):
+            try:
+                number = int(user_action[7:].strip())
+                todos = todo_functions.get_todos()
+                index = number - 1
+
+                if index < 0 or index >= len(todos):
+                    raise IndexError
+
+                delete = todos.pop(index)
+                todo_functions.write_todos(todos)
+
+                print(f'Todo "{delete.title()}" deleted!')
+
+            except ValueError:
+                print("Use: delete <number>")
+            except IndexError:
+                print("There is no todo with that number.")
+
+
+        # ================= EXIT =================
+        elif user_action == "exit":
+            print("Goodbye!")
+            break
+
+        else:
+
+            print("Unknown command.")
+
+if __name__ == "__main__":
+    main()
+
+# ================= END =================

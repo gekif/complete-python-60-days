@@ -15,3 +15,5 @@ makan
 ngentoy
 monis
 makan
+makan
+minum
