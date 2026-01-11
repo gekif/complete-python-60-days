@@ -1,4 +1,6 @@
 from todo_functions import get_todos, write_todos, append_completed
+from helper import get_timestamp
+
 
 def main():
     while True:
@@ -13,7 +15,9 @@ def main():
                 continue
 
             todos = get_todos()
-            todos.append(todo)
+            timestamp = get_timestamp()
+
+            todos.append(f"{todo} - {timestamp}")
             write_todos(todos)
             print("Todo added.")
 
@@ -26,6 +30,7 @@ def main():
                 print("No todos.")
             else:
                 for i, todo in enumerate(todos, start=1):
+                    timestamp = get_timestamp()
                     print(f"{i} - {todo.title()}")
 
 
@@ -44,7 +49,9 @@ def main():
                     print("Todo cannot be empty.")
                     continue
 
-                todos[index] = new_todo
+                timestamp = get_timestamp()
+                todos[index] = f"{new_todo} - {timestamp}"
+
                 write_todos(todos)
                 print("Todo updated.")
 
@@ -66,6 +73,8 @@ def main():
 
                 completed = todos.pop(index)
                 write_todos(todos)
+
+                timestamp = get_timestamp()
                 append_completed(completed)
 
                 print(f'Todo "{completed.title()}" completed!')
