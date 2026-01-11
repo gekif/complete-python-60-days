@@ -1,4 +1,4 @@
-import todo_functions
+from todo_functions import get_todos, write_todos, append_completed
 
 def main():
     while True:
@@ -12,15 +12,15 @@ def main():
                 print("Todo cannot be empty.")
                 continue
 
-            todos = todo_functions.get_todos()
+            todos = get_todos()
             todos.append(todo)
-            todo_functions.write_todos(todos)
+            write_todos(todos)
             print("Todo added.")
 
 
         # ================= SHOW =================
         elif user_action == "show":
-            todos = todo_functions.get_todos()
+            todos = get_todos()
 
             if not todos:
                 print("No todos.")
@@ -33,7 +33,7 @@ def main():
         elif user_action.startswith("edit"):
             try:
                 number = int(user_action[5:].strip())
-                todos = todo_functions.get_todos()
+                todos = get_todos()
                 index = number - 1
 
                 if index < 0 or index >= len(todos):
@@ -45,7 +45,7 @@ def main():
                     continue
 
                 todos[index] = new_todo
-                todo_functions.write_todos(todos)
+                write_todos(todos)
                 print("Todo updated.")
 
             except ValueError:
@@ -58,15 +58,15 @@ def main():
         elif user_action.startswith("complete"):
             try:
                 number = int(user_action[9:].strip())
-                todos = todo_functions.get_todos()
+                todos = get_todos()
                 index = number - 1
 
                 if index < 0 or index >= len(todos):
                     raise IndexError
 
                 completed = todos.pop(index)
-                todo_functions.write_todos(todos)
-                todo_functions.append_completed(completed)
+                write_todos(todos)
+                append_completed(completed)
 
                 print(f'Todo "{completed.title()}" completed!')
 
@@ -79,14 +79,14 @@ def main():
         elif user_action.startswith("delete"):
             try:
                 number = int(user_action[7:].strip())
-                todos = todo_functions.get_todos()
+                todos = get_todos()
                 index = number - 1
 
                 if index < 0 or index >= len(todos):
                     raise IndexError
 
                 delete = todos.pop(index)
-                todo_functions.write_todos(todos)
+                write_todos(todos)
 
                 print(f'Todo "{delete.title()}" deleted!')
 
