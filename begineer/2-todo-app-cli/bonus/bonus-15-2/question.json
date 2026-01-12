@@ -1,0 +1,29 @@
+[
+    {
+        "question": "What does the code in bonus-15-2.py do?",
+        "options": [
+            "1. It reads a CSV file and prints all temperatures with their stations.",
+            "2. It searches for a specific city's temperature in a CSV file.",
+            "3. It creates a zip archive of a folder."
+        ],
+        "answer": 2
+    },
+    {
+        "question": "How does the code handle case sensitivity when searching for a city?",
+        "options": [
+            "1. It uses the exact case as provided by the user.",
+            "2. It converts both the station name and user input to lowercase for comparison.",
+            "3. It ignores case sensitivity altogether."
+        ],
+        "answer": 2
+    },
+    {
+        "question": "What happens if the city entered by the user is not found in the CSV data?",
+        "options": [
+            "1. The program crashes with an error.",
+            "2. It prints a message indicating that the city was not found.",
+            "3. It returns a default temperature value."
+        ],
+        "answer": 2
+    }
+]
