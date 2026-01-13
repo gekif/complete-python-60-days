@@ -74,7 +74,6 @@ def main():
                 completed = todos.pop(index)
                 write_todos(todos)
 
-                timestamp = get_timestamp()
                 append_completed(completed)
 
                 print(f'Todo "{completed.title()}" completed!')
