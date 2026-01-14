@@ -7,13 +7,23 @@ add_button = sg.Button("Add")
 edit_button = sg.Button("Edit")
 list_box = sg.Listbox(values=todo_functions.get_todos(), key="todos", enable_events=True, size=(45, 10))
 
-window = sg.Window(
-    'My To-Do App',
-layout=[
+# button_labels = ["Close", "Apply"]
+
+# layout = []
+
+# for bl in button_labels:
+#     layout.append([sg.Button(bl)])
+
+layout = [
     [label],
     [input_box, add_button],
     [list_box, edit_button]
-],
+    # [bl[0] for bl in layout]
+]
+
+window = sg.Window(
+    'My To-Do App',
+layout=layout,
     font=('Helvetica', 20)
 )
 
