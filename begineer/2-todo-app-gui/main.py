@@ -23,7 +23,7 @@ layout = [
 
 window = sg.Window(
     'My To-Do App',
-layout=layout,
+    layout=layout,
     font=('Helvetica', 20)
 )
 
