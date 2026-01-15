@@ -1,10 +1,12 @@
 import todo_functions
 import FreeSimpleGUI as sg
+import time
 
+sg.theme("Black")
+
+clock = sg.Text('', key='clock')
 label = sg.Text("Type in a to-do")
 input_box = sg.InputText(tooltip="Enter todo", key="todo")
-# add_button = sg.Button("Add")
-# edit_button = sg.Button("Edit")
 list_box = sg.Listbox(values=todo_functions.get_todos(), key="todos", enable_events=True, size=(45,10))
 
 button_labels = ["Add", "Edit", "Complete", "Delete", "Exit"]
@@ -15,6 +17,7 @@ for bl in button_labels:
     layout.append([sg.Button(bl)])
 
 layout = [
+    [clock],
     [label],
     [input_box],
     [list_box],
@@ -28,7 +31,8 @@ window = sg.Window(
 )
 
 while True:
-    event, values = window.read()
+    event, values = window.read(timeout=200)
+    window['clock'].update(value=time.strftime("%d %b %Y %H:%M:%S"))
 
     #debug
     print(event)
@@ -48,17 +52,20 @@ while True:
 
 
         case "Edit":
-            todos = todo_functions.get_todos()
-            todo_to_edit = values['todos'][0]
-            new_todo = values['todo']
+            try:
+                todos = todo_functions.get_todos()
+                todo_to_edit = values['todos'][0]
+                new_todo = values['todo']
 
-            index = todos.index(todo_to_edit)
-            todos[index] = new_todo + '\n'
-            todo_functions.write_todos(todos)
+                index = todos.index(todo_to_edit)
+                todos[index] = new_todo + '\n'
+                todo_functions.write_todos(todos)
 
-            # 🔥 UPDATE LISTBOX
-            window['todos'].update(values=todos)
-            window['todo'].update('')
+                # 🔥 UPDATE LISTBOX
+                window['todos'].update(values=todos)
+                window['todo'].update('')
+            except IndexError:
+                sg.popup("Please select an item first", font=('Helvetica', 20))
 
         case "Complete":
             todos = todo_functions.get_todos()
