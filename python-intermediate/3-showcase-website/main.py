@@ -9,7 +9,13 @@ with col1:
 
 with col2:
     st.title("Dzulfikar Maulana")
-    content = """
+    content1 = """
     Hello! I'm Dzulfikar Maulana, a passionate software developer with a keen interest in building innovative solutions. With a background in computer science, I specialize in web development and have experience working with various programming languages and frameworks. I'm always eager to learn new technologies and take on challenging projects. Let's connect and create something amazing together!
     """
-    st.write(content)
+    st.write(content1)
+
+content2 = """
+Below you can find some of the apps I have built in python. Feel free to contact me
+"""
+
+st.write(content2)
