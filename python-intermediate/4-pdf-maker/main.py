@@ -14,8 +14,11 @@ for index, row in df.iterrows():
     pdf.set_font(family="Times",style="B", size=24)
     pdf.set_text_color(100, 100, 100)
     pdf.cell(w=0, h=12, txt=row['Topic'],align="L", ln=1)
-    pdf.line(10, 21, 200, 21)
+    # pdf.line(10, 21, 200, 21)
 
+    # Isi
+    for y in range(20, 298, 10):
+        pdf.line(10, y, 200, y)
 
     # Set the footer
     pdf.ln(265)
@@ -23,9 +26,13 @@ for index, row in df.iterrows():
     pdf.set_text_color(180, 180, 180)
     pdf.cell(w=0, h=10, txt=row['Topic'], align="R")
 
-
+    # Next Page
     for i in range(row['Pages'] - 1):
         pdf.add_page()
+
+        # Isi
+        for y in range(20, 298, 10):
+            pdf.line(10, y, 200, y)
 
         # Set the footer
         pdf.ln(277)
@@ -34,6 +41,8 @@ for index, row in df.iterrows():
         pdf.cell(w=0, h=10, txt=row['Topic'], align="R")
 
 
-if pdf:
+try:
     pdf.output("output.pdf")
     print("PDF generated successfully.")
+except Exception as e:
+    print(f"An error occurred while generating the PDF: {e}")
