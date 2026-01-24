@@ -1,8 +1,17 @@
 import requests
 from config import API_KEY
 
-url = f"https://newsapi.org/v2/everything?q=tesla&sortBy=publishedAt&apiKey={API_KEY}"
+url = "https://newsapi.org/v2/everything?q=tesla" \
+      "&sortBy=publishedAt" \
+      f"&apiKey={API_KEY}"
 
+# Make request
 request = requests.get(url)
-content = request.text
-print(content)
+
+# Set a dictionary with data
+content = request.json()
+
+# Access the article titles and descriptions
+for article in content["articles"]:
+    print(article["title"])
+    print(article["description"])
