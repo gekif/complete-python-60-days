@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tutorial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../6-news-by-email/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../6-news-by-email/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/6-weather-data-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/6-weather-data-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="APIS - Weather API - Build Website Using Flash">
+      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/dump/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tutorial.html" beforeDir="false" afterPath="$PROJECT_DIR$/dump/tutorial.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +59,7 @@
       <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\dump" />
       <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\static" />
       <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\images" />
       <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\templates" />
@@ -107,7 +105,20 @@
       <option name="presentableId" value="Default" />
       <updated>1769220609647</updated>
     </task>
+    <task id="LOCAL-00001" summary="APIS - Weather API - Build Website Using Flash">
+      <option name="closed" value="true" />
+      <created>1769397643482</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1769397643482</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="APIS - Weather API - Build Website Using Flash" />
+    <option name="LAST_COMMIT_MESSAGE" value="APIS - Weather API - Build Website Using Flash" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
