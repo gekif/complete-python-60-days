@@ -4,12 +4,13 @@ from send_email import send_email
 from helper import today
 
 topic = "Tesla"
+language = "en"
 
 url = "https://newsapi.org/v2/everything?"\
       f"q={topic}&" \
       "sortBy=publishedAt&" \
       f"apiKey={API_KEY}&" \
-      "language=en"
+      f"language={language}"
 
 
 # Make request

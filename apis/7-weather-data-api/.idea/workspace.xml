@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="" />
+    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/tutorial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../6-news-by-email/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../6-news-by-email/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/6-weather-data-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/6-weather-data-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "gekif"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/gekif/complete-python-60-days.git",
+    "accountId": "1ff68e2d-3052-4b90-af5e-a217d618db5e"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="38gUG8ZDCctoErKJOa3tbhP0phD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -20,12 +48,25 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "last_opened_file_path": "C:/Users/Lenovo/Documents/FIKAR FOLDER/code-tutorial/python60/apis/6-weather-data-api"
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Lenovo/Documents/FIKAR FOLDER/code-tutorial/python60/apis/7-weather-data-api"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\static" />
+      <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\images" />
+      <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\templates" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="6-weather-data-api" />
@@ -67,17 +108,6 @@
       <updated>1769220609647</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
