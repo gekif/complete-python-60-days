@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="APIS - Weather API - Show Stations Table on Homepage">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-    </list>
+    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="APIS - Weather API - Endpoint For All and Yearly Data" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769579302673</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="APIS - Weather API - Endpoint For All and Yearly Data">
+      <option name="closed" value="true" />
+      <created>1769579824753</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1769579824753</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -177,7 +181,8 @@
     <MESSAGE value="APIS - Weather API - Return Temperature From Any Station" />
     <MESSAGE value="APIS - Weather API - Student Project - Create Thesaurus" />
     <MESSAGE value="APIS - Weather API - Show Stations Table on Homepage" />
-    <option name="LAST_COMMIT_MESSAGE" value="APIS - Weather API - Show Stations Table on Homepage" />
+    <MESSAGE value="APIS - Weather API - Endpoint For All and Yearly Data" />
+    <option name="LAST_COMMIT_MESSAGE" value="APIS - Weather API - Endpoint For All and Yearly Data" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
