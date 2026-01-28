@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="APIS - Weather API - Return Temperature From Any Station">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="APIS - Weather API - Student Project - Create Thesaurus">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/student_library/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/student_library/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,19 +43,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Lenovo/Documents/FIKAR FOLDER/code-tutorial/python60/apis/7-weather-data-api/exercise/student_library"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/FIKAR FOLDER/code-tutorial/python60/apis/7-weather-data-api/exercise/student_library&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\exercise\student_library" />
@@ -150,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769500934745</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="APIS - Weather API - Student Project - Create Thesaurus">
+      <option name="closed" value="true" />
+      <created>1769502117600</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769502117600</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -159,7 +167,8 @@
     <MESSAGE value="APIS - Weather API - Student Exercise Project - Build Dictionary" />
     <MESSAGE value="APIS - Weather API - Weather Analytics Using Jupyter Notebook" />
     <MESSAGE value="APIS - Weather API - Return Temperature From Any Station" />
-    <option name="LAST_COMMIT_MESSAGE" value="APIS - Weather API - Return Temperature From Any Station" />
+    <MESSAGE value="APIS - Weather API - Student Project - Create Thesaurus" />
+    <option name="LAST_COMMIT_MESSAGE" value="APIS - Weather API - Student Project - Create Thesaurus" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
