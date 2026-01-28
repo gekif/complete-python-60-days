@@ -25,6 +25,39 @@ def about(station, date):
 
     return dict_station
 
+@app.route("/api/v1/<station>")
+def all_data(station):
+    filename = "data/TG_STAID" + str(station).zfill(6) + ".txt"
+    df = pd.read_csv(filename, skiprows=20, parse_dates=["    DATE"])
+    df['   TG'] = df['   TG'] / 10
+    df = df.rename(columns={"    DATE": "date", "   TG": "temperature"})
+    data = df.to_dict(orient="records")
+
+    dict_station = {
+        "station": station,
+        "data": data
+    }
+
+    return dict_station
+
+
+app.route("/api/v1/yearly/<station>/<year>")
+def yearly_data(station, year):
+    filename = "data/TG_STAID" + str(station).zfill(6) + ".txt"
+    df = pd.read_csv(filename, skiprows=20, parse_dates=["    DATE"])
+    df['   TG'] = df['   TG'] / 10
+    df = df.rename(columns={"    DATE": "date", "   TG": "temperature"})
+    df['year'] = df['date'].dt.year
+    df_year = df[df['year'] == int(year)]
+    data = df_year.drop(columns=['year']).to_dict(orient="records")
+
+    dict_station = {
+        "station": station,
+        "year": year,
+        "data": data
+    }
+
+    return dict_station
 
 if __name__ == "__main__":
     app.run(debug=True)
