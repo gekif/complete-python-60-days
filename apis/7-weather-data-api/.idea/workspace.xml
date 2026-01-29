@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="APIS - Weather API - Endpoint For All and Yearly Data" />
+    <list default="true" id="b0eb4279-8e1e-47be-844e-0ff8fa596928" name="Changes" comment="APIS - Weather API - Student Project - Wine Analysis">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,11 +51,12 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/FIKAR FOLDER/code-tutorial/python60/apis/7-weather-data-api/exercise/student_library&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/FIKAR FOLDER/code-tutorial/python60/apis/7-weather-data-api/exercise/wines_analyzer&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\exercise\wines_analyzer" />
       <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\exercise\student_library" />
       <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\data" />
       <recent name="C:\Users\Lenovo\Documents\FIKAR FOLDER\code-tutorial\python60\apis\7-weather-data-api\exercise\student_library\templates" />
@@ -170,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769579824753</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="APIS - Weather API - Student Project - Wine Analysis">
+      <option name="closed" value="true" />
+      <created>1769580080072</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1769580080072</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -182,7 +193,8 @@
     <MESSAGE value="APIS - Weather API - Student Project - Create Thesaurus" />
     <MESSAGE value="APIS - Weather API - Show Stations Table on Homepage" />
     <MESSAGE value="APIS - Weather API - Endpoint For All and Yearly Data" />
-    <option name="LAST_COMMIT_MESSAGE" value="APIS - Weather API - Endpoint For All and Yearly Data" />
+    <MESSAGE value="APIS - Weather API - Student Project - Wine Analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="APIS - Weather API - Student Project - Wine Analysis" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
