@@ -9,6 +9,7 @@ def send_email(image_path):
     gmail = None
 
     try:
+        print("send_email function started")
         email_message = EmailMessage()
         email_message["Subject"] = "New Customer Showed Up!!!"
         email_message["From"] = SENDER
@@ -38,6 +39,7 @@ def send_email(image_path):
         gmail.send_message(email_message)
 
         print("✅ Email is sent")
+        print("send_email function ended")
 
     except FileNotFoundError:
         print("❌ Image file not found")
