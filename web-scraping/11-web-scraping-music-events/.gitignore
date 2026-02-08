@@ -1,2 +1,4 @@
 config.py
 /data.txt
+data.db
+data.db-journal
