@@ -6,8 +6,6 @@ from send_email import Email
 
 
 HEADERS
-CONNECTION
-
 
 class Event:
     def scrape(self, url):
@@ -21,37 +19,42 @@ class Event:
         value = extractor.extract(source)["tours"]
         return value
 
-def store(extracted):
-   row = extracted.split(",")
-   row = [item.strip() for item in row]
-   cursor = CONNECTION.cursor()
-   cursor.execute("INSERT INTO events VALUES (?,?,?)", row)
-   CONNECTION.commit()
+class Database:
+    def __init__(self, connection):
+        self.CONNECTION = connection
 
-def read(extracted):
-    row = extracted.split(",")
-    row = [item.strip() for item in row]
-    band, city, date = row
-    cursor = CONNECTION.cursor()
-    cursor.execute("SELECT * FROM events WHERE band=? AND city=? AND date=?", (band, city, date))
-    rows = cursor.fetchall()
-    return rows
+    def store(self, extracted):
+       row = extracted.split(",")
+       row = [item.strip() for item in row]
+       cursor = self.CONNECTION.cursor()
+       cursor.execute("INSERT INTO events VALUES (?,?,?)", row)
+       self.CONNECTION.commit()
 
-def init_db():
-    cursor = CONNECTION.cursor()
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS events (
-            band TEXT,
-            city TEXT,
-            date TEXT
-        )
-    """)
-    CONNECTION.commit()
+    def read(self, extracted):
+        row = extracted.split(",")
+        row = [item.strip() for item in row]
+        band, city, date = row
+        cursor = self.CONNECTION.cursor()
+        cursor.execute("SELECT * FROM events WHERE band=? AND city=? AND date=?", (band, city, date))
+        rows = cursor.fetchall()
+        return rows
+
+    def init_db(self):
+        cursor = self.CONNECTION.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS events (
+                band TEXT,
+                city TEXT,
+                date TEXT
+            )
+        """)
+        CONNECTION.commit()
 
 
 if __name__ == "__main__":
 
-    init_db()
+    db = Database(CONNECTION)
+    db.init_db()
 
     while True:
         event = Event()
@@ -60,9 +63,9 @@ if __name__ == "__main__":
         print(extracted)
 
         if extracted != "No upcoming tours":
-            row = read(extracted)
+            row = db.read(extracted)
             if not row:
-                store(extracted)
+                db.store(extracted)
                 email = Email()
                 email.send(message="Hey, new event was found")
 
