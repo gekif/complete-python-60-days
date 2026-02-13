@@ -22,6 +22,11 @@ class Hotel:
         else:
             return False
 
+    @classmethod
+    def get_hotel_count(cls, data):
+        return len(data)
+
+
 class ReservationTicket:
     def __init__(self, customer_name, hotel_object):
         self.customer_name = customer_name
@@ -43,9 +48,11 @@ hotel2 = Hotel(hotel_id="134")
 print(hotel1.name)
 print(hotel2.name)
 
-
 print(hotel1.watermark)
 print(hotel2.watermark)
 
 print(Hotel.watermark)
 
+print(hotel1.available())
+print(Hotel.get_hotel_count(data=df))
+print(hotel1.get_hotel_count(data=df))
