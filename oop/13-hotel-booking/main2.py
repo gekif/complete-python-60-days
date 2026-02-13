@@ -47,6 +47,12 @@ class ReservationTicket:
         name = name.title()
         return name
 
+    @staticmethod
+    def convert(amount):
+        return amount * 1.2
+
+
+
 
 hotel1 = Hotel(hotel_id="188")
 hotel2 = Hotel(hotel_id="134")
@@ -66,3 +72,6 @@ print(hotel1.get_hotel_count(data=df))
 ticket = ReservationTicket(customer_name="john doe", hotel_object=hotel1)
 print(ticket.the_customer_name)
 print(ticket.generate())
+
+converted = ReservationTicket.convert(5000)
+print(int(converted))
