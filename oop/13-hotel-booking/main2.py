@@ -26,6 +26,16 @@ class Hotel:
     def get_hotel_count(cls, data):
         return len(data)
 
+    def __eq__(self, other):
+        if self.hotel_id == other.hotel_id:
+            return True
+        else:
+            return False
+
+    def __add__(self, other):
+        total = self.price + other.price
+        return total
+
 
 class ReservationTicket:
     def __init__(self, customer_name, hotel_object):
