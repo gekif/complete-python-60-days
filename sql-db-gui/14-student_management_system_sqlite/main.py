@@ -141,6 +141,7 @@ class InsertDialog(QDialog):
         connection.close()
 
         main_window.load_data()
+        self.accept()
 
 
 class EditDialog(QDialog):
@@ -204,9 +205,48 @@ class EditDialog(QDialog):
         main_window.load_data()
 
 
-
 class DeleteDialog(QDialog):
-    pass
+    def __init__(self):
+        super().__init__()
+        # Set window title and size
+        self.setWindowTitle("Delete Student Data")
+        self.setFixedWidth(300)
+        self.setFixedHeight(300)
+
+        layout = QVBoxLayout()
+
+        # Add Label Widget
+        label = QLabel("Are you sure you want to delete this record?")
+        layout.addWidget(label)
+
+        # Add Yes Button
+        yes_button = QPushButton("Yes")
+        yes_button.clicked.connect(self.delete_student)
+        layout.addWidget(yes_button)
+
+        # Add No Button
+        no_button = QPushButton("No")
+        no_button.clicked.connect(self.close)
+        layout.addWidget(no_button)
+
+        self.setLayout(layout)
+
+    def delete_student(self):
+        index = main_window.table.currentRow()
+        student_id = main_window.table.item(index, 0).text()
+
+        connection = sqlite3.connect("database.db")
+        cursor = connection.cursor()
+        cursor.execute("DELETE FROM students WHERE id=?", (student_id,))
+        connection.commit()
+        cursor.close()
+        connection.close()
+
+        # Refresh the Table
+        main_window.load_data()
+        self.accept()
+
+
 
 class SearchDialog(QDialog):
     def __init__(self):
