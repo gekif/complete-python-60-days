@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import QApplication, QLabel, QWidget, QGridLayout, QLineEdit, QPushButton, QMainWindow, \
-    QTableWidget, QTableWidgetItem, QDialog, QVBoxLayout, QComboBox, QToolBar, QStatusBar
+    QTableWidget, QTableWidgetItem, QDialog, QVBoxLayout, QComboBox, QToolBar, QStatusBar, QMessageBox
 from PyQt6.QtGui import QAction, QIcon
 from PyQt6.QtCore import Qt
 import sys
@@ -23,6 +23,7 @@ class MainWindow(QMainWindow):
         about_action = QAction("About", self)
         help_menu_item.addAction(about_action)
         about_action.setMenuRole(QAction.MenuRole.NoRole)
+        about_action.triggered.connect(self.about)
 
         search_action = QAction(QIcon("icons/search.png"),"Search", self)
         edit_menu_item.addAction(search_action)
@@ -94,6 +95,10 @@ class MainWindow(QMainWindow):
         dialog = DeleteDialog()
         dialog.exec()
 
+    def about(self):
+        dialog = AboutDialog()
+        dialog.exec()
+
 
 class InsertDialog(QDialog):
     def __init__(self):
@@ -141,7 +146,12 @@ class InsertDialog(QDialog):
         connection.close()
 
         main_window.load_data()
-        self.accept()
+        self.close()
+
+        confirmation_widget = QMessageBox()
+        confirmation_widget.setWindowTitle("Success")
+        confirmation_widget.setText("The record was added successfully!")
+        confirmation_widget.exec()
 
 
 class EditDialog(QDialog):
@@ -231,6 +241,7 @@ class DeleteDialog(QDialog):
 
         self.setLayout(layout)
 
+
     def delete_student(self):
         index = main_window.table.currentRow()
         student_id = main_window.table.item(index, 0).text()
@@ -244,8 +255,12 @@ class DeleteDialog(QDialog):
 
         # Refresh the Table
         main_window.load_data()
-        self.accept()
+        self.close()
 
+        confirmation_widget = QMessageBox()
+        confirmation_widget.setWindowTitle("Success")
+        confirmation_widget.setText("The record was deleted successfully!")
+        confirmation_widget.exec()
 
 
 class SearchDialog(QDialog):
@@ -305,6 +320,17 @@ class SearchDialog(QDialog):
 
             for item in items:
                 main_window.table.selectRow(item.row())
+
+
+class AboutDialog(QMessageBox):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("About")
+        content = """
+        This app was created during the course "The Python Mega Course".
+        Feel free to modify and reuse this app.
+        """
+        self.setText(content)
 
 
 app = QApplication(sys.argv)
