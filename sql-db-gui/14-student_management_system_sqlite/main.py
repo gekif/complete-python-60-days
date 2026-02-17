@@ -49,7 +49,7 @@ class MainWindow(QMainWindow):
         # Detect a cell click
         self.table.cellClicked.connect(self.cell_clicked)
 
-    def cell_clicked(self):
+    def cell_clicked(self, row, column):
         edit_button = QPushButton("Edit Record")
         edit_button.clicked.connect(self.edit)
 
@@ -60,7 +60,6 @@ class MainWindow(QMainWindow):
         if children:
             for child in children:
                 self.status_bar.removeWidget(child)
-
 
         self.status_bar.addWidget(edit_button)
         self.status_bar.addWidget(delete_button)
@@ -84,6 +83,10 @@ class MainWindow(QMainWindow):
         dialog.exec()
 
     def edit(self):
+        if self.table.currentRow() == -1:
+            print("No row selected")
+            return
+
         dialog = EditDialog()
         dialog.exec()
 
@@ -141,7 +144,66 @@ class InsertDialog(QDialog):
 
 
 class EditDialog(QDialog):
-    pass
+    def __init__(self):
+        super().__init__()
+        # Set window title and size
+        self.setWindowTitle("Edit Student Data")
+        self.setFixedWidth(300)
+        self.setFixedHeight(300)
+
+        layout = QVBoxLayout()
+
+        # Get Student Name from Selected Row
+        index = main_window.table.currentRow()
+        student_name = main_window.table.item(index,1).text()
+
+        # Get ID from Selected Row
+        self.student_id = main_window.table.item(index,0).text()
+
+        # Edit Student Name Widget
+        self.student_name = QLineEdit(student_name)
+        self.student_name.setPlaceholderText("Name")
+        layout.addWidget(self.student_name)
+
+        # Edit Combo Box of Courses
+        course_name = main_window.table.item(index,2).text()
+        self.course_name = QComboBox()
+        courses = ["Biology", "Math", "Astronomy", "Physics"]
+        self.course_name.addItems(courses)
+        self.course_name.setCurrentText(course_name)
+        layout.addWidget(self.course_name)
+
+        # Edit Mobile Number Widget
+        mobile = main_window.table.item(index, 3).text()
+        self.mobile = QLineEdit(mobile)
+        self.mobile.setPlaceholderText("Mobile")
+        layout.addWidget(self.mobile)
+
+        # Add Edit Button
+        button = QPushButton("Edit")
+        button.clicked.connect(self.update_student)
+        layout.addWidget(button)
+
+        self.setLayout(layout)
+
+    def update_student(self):
+        name = self.student_name.text()
+        course = self.course_name.currentText()
+        mobile = self.mobile.text()
+        id = self.student_id
+
+        connection = sqlite3.connect("database.db")
+        cursor = connection.cursor()
+        cursor.execute("UPDATE students SET name=?, course=?, mobile=? WHERE id=?",
+                       (name, course, mobile, id))
+        connection.commit()
+        cursor.close()
+        connection.close()
+
+        #Refresh the Table
+        main_window.load_data()
+
+
 
 class DeleteDialog(QDialog):
     pass
