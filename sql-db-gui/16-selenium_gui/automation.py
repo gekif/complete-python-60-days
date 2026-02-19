@@ -9,7 +9,7 @@ from config import *
 
 
 # ==============================
-# BASE PAGE (Reusable Methods)
+# BASE PAGE
 # ==============================
 class BasePage:
 
@@ -44,54 +44,44 @@ class DemoQAApp(BasePage):
     def go_to_bookstore(self):
         self.safe_click((By.XPATH, "//h5[text()='Book Store Application']"))
         self.wait_url_contains("/books")
-        print("✅ Masuk halaman Books")
 
     def go_to_login(self):
         self.safe_click((By.ID, "login"))
         self.wait_url_contains("/login")
-        print("✅ Masuk halaman Login")
 
     def login(self, username, password):
         self.type_text((By.ID, "userName"), username)
         self.type_text((By.ID, "password"), password)
         self.safe_click((By.ID, "login"))
         self.wait_url_contains("/profile")
-        print("✅ Login berhasil, masuk Profile")
 
     def go_to_elements(self):
         self.driver.get("https://demoqa.com")
         self.safe_click((By.XPATH, "//h5[text()='Elements']"))
         self.wait_url_contains("/elements")
-        print("✅ Klik menu Elements berhasil")
 
-    def fill_text_box(self):
+    def fill_text_box(self, full_name, email, current_addr, permanent_addr):
         self.safe_click((By.XPATH, "//span[text()='Text Box']"))
         self.wait_url_contains("/text-box")
-        print("✅ Klik menu Text Box berhasil")
 
-        self.type_text((By.ID, "userName"), "John Doe")
-        self.type_text((By.ID, "userEmail"), "john@doe.com")
-        self.type_text((By.ID, "currentAddress"), "Alamat sekarang")
-        self.type_text((By.ID, "permanentAddress"), "Alamat tetap")
+        self.type_text((By.ID, "userName"), full_name)
+        self.type_text((By.ID, "userEmail"), email)
+        self.type_text((By.ID, "currentAddress"), current_addr)
+        self.type_text((By.ID, "permanentAddress"), permanent_addr)
 
         self.safe_click((By.ID, "submit"))
-        print("✅ Form berhasil disubmit")
 
     def download_file(self):
         self.safe_click((By.XPATH, "//span[text()='Upload and Download']"))
         self.wait_url_contains("/upload-download")
-        print("✅ Masuk halaman Upload and Download")
-
         self.safe_click((By.ID, "downloadButton"))
-        print("✅ File berhasil didownload")
 
 
 # ==============================
-# DRIVER SETUP
+# DRIVER FACTORY
 # ==============================
 def create_driver():
     chrome_options = Options()
-    chrome_options.add_argument("--disable-search-engine-choice-screen")
 
     download_path = os.getcwd()
     prefs = {
@@ -109,20 +99,20 @@ def create_driver():
 
 
 # ==============================
-# MAIN EXECUTION
+# FUNCTION YANG DIPANGGIL GUI
 # ==============================
-if __name__ == "__main__":
+def run_automation(username, password, full_name, email, current_addr, permanent_addr):
 
     driver = create_driver()
     app = DemoQAApp(driver)
 
-    app.open_homepage()
-    app.go_to_bookstore()
-    app.go_to_login()
-    app.login("pythonstudent", "PythonStudent123$")
-    app.go_to_elements()
-    app.fill_text_box()
-    app.download_file()
-
-    input("Press Enter to close the browser...")
-    driver.quit()
+    try:
+        app.open_homepage()
+        app.go_to_bookstore()
+        app.go_to_login()
+        app.login(username, password)
+        app.go_to_elements()
+        app.fill_text_box(full_name, email, current_addr, permanent_addr)
+        # app.download_file()
+    finally:
+        driver.quit()
