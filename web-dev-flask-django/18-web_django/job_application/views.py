@@ -39,3 +39,7 @@ def index(request):
         form = ApplicationForm()
 
     return render(request, "index.html", {"form": form})
+
+
+def about(request):
+    return render(request, "about.html")
