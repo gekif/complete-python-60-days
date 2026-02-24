@@ -1,12 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Restaurant System</title>
-</head>
-<body>
-    <h1>{{ item.meal }}</h1>
-    <p>{{ item.description }}</p>
-    <p>{{ item.price }}</p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <div class="card-body p-5">
+
+                    <!-- Title -->
+                    {% if item.status == 0 %}
+                        <h1 class="mb-3 text-danger">
+                            <del>{{ item.meal }}</del>
+                        </h1>
+                        <span class="badge bg-danger mb-3">Currently Unavailable</span>
+                    {% else %}
+                        <h1 class="mb-3 fw-bold">
+                            {{ item.meal }}
+                        </h1>
+                        <span class="badge bg-success mb-3">Available</span>
+                    {% endif %}
+
+                    <!-- Price -->
+                    <h3 class="text-primary mb-4">
+                         {{ item.price }}
+                    </h3>
+
+                    <!-- Description -->
+                    <p class="lead text-muted">
+                        {{ item.description }}
+                    </p>
+
+                    <!-- Divider -->
+                    <hr class="my-4">
+
+                    <!-- Back Button -->
+                    <a href="{% url 'home' %}" class="btn btn-outline-dark rounded-pill px-4">
+                        ← Back to Menu
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
