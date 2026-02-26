@@ -5,6 +5,18 @@ import glob
 from fpdf import FPDF
 from pathlib import Path
 
+"""
+This function converts invoice Excel files into PDF invoices. 
+:param invoices_path:
+:param pdfs_path:
+:param image_path:
+:param product_id:
+:param product_name:
+:param amount_purchased:
+:param price_per_unit:
+:param total_price:
+:return:
+"""
 
 
 
@@ -68,5 +80,7 @@ def generate(invoice_path, pdfs_path, image_path,
         pdf.cell(w=25, h=8, txt=f"PythonHow")
         pdf.image(image_path, w=10)
 
-        os.makedirs(pdfs_path)
+        if not os.path.exists(pdfs_path):
+            os.makedirs(pdfs_path)
+
         pdf.output(f"{pdfs_path}/{filename}.pdf")
